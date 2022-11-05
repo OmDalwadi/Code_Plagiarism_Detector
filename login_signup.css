@@ -1,4 +1,5 @@
-/* Please ❤ this if you like it! */
+/* Add a citation to the original user on codepen: Ivan Grozdic @ig_design
+*/
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 .body {
@@ -82,7 +83,7 @@ h6 span {
     height: 36px;
     border-radius: 50%;
     color: #ffeba7;
-    background-color: #a3a9bd;
+    background-color: #102770;
     font-family: 'unicons';
     content: '\eb4f';
     z-index: 20;
