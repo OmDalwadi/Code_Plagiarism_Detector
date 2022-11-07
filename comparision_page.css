@@ -1,8 +1,24 @@
 * {
-	margin: 0.1em;
+	margin: 0.8em;
 }
 
 html {
   font-family: sans-serif;
-  zoom: 2
+  zoom: 1.8
+}
+
+body {
+  background-color: rgb(151, 192, 197);
+}
+
+tr{
+  background-color:rgb(151, 97, 107);
+}
+
+h1{
+  color:bisque;
+}
+
+p {
+  color:rgb(255, 247, 192);
 }
