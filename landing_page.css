@@ -104,7 +104,7 @@ body {
     /* display: inline; */
     position: absolute;
     top: 10%;
-    left: 44.5%;
+    left: 42%;
 }
 
 .title {
@@ -113,6 +113,9 @@ body {
 
 .logo img {
     max-width: 150px;
+    position: absolute;
+    top: 50%;
+    left: 36%;
 }
 
 a {
