@@ -98,24 +98,24 @@ body {
     font-size: 68.5%;
 }
 
-.logo {
-    font-weight: 50;
-    font-size: 40px;
-    /* display: inline; */
+.logo img {
+    display: inline;
     position: absolute;
-    top: 10%;
-    left: 42%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 110px;
+    width: 110px;
 }
 
 .title {
-    display: block;
-}
-
-.logo img {
-    max-width: 150px;
     position: absolute;
-    top: 50%;
-    left: 36%;
+    display: inline;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #ffffff;
 }
 
 a {
