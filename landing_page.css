@@ -70,21 +70,21 @@ body {
     display: block;
     font-weight: 800;
     font-size: 2.8rem;
-  }
-  
-  .grid .column h2,
-  .grid .column p {
-      margin: 0;
-  }
-  
-  .grid .column p {
-      letter-spacing: 1px;
-      font-size: 68.5%;
-  }
-  
-  .logo{
+}
+
+.grid .column h2,
+.grid .column p {
+    margin: 0;
+}
+
+.grid .column p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+
+.logo {
     font-stretch: ultra-expanded;
-    font-weight:800;
+    font-weight: 800;
     font-size: 80%;
 }
 
@@ -122,21 +122,15 @@ a {
     color: #FFF;
     display: block;
     font-family: sans-serif;
-  }
-  #west{
-    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center right;
 }
 
 #west {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/ISSlRnm.png) no-repeat center right;
+    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center right;
     background-size: cover;
-  }
-  #east{
-    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center bottom;
 }
 
 #east {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/man_guy_jumping_levitate_railing-1407739.jpg) no-repeat center bottom;
+    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center bottom;
     background-size: cover;
 }
 
