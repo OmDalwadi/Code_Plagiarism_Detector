@@ -79,7 +79,7 @@
   .logo{
     font-stretch: ultra-expanded;
     font-weight:800;
-    font-size: 800px;
+    font-size: 80%;
     letter-spacing: 1px;
     display: inline;
     position: absolute;
@@ -99,11 +99,11 @@
     font-family: sans-serif;
   }
   #west{
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/ISSlRnm.png) no-repeat center right;
+    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center right;
     background-size: cover;
   }
   #east{
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/man_guy_jumping_levitate_railing-1407739.jpg) no-repeat center bottom;
+    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center bottom;
     background-size: cover;
   }
   #west .content{
