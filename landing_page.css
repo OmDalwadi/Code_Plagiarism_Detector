@@ -104,7 +104,7 @@ body {
     /* display: inline; */
     position: absolute;
     top: 10%;
-    left: 44.5%;
+    left: 42%;
 }
 
 .title {
@@ -113,6 +113,9 @@ body {
 
 .logo img {
     max-width: 150px;
+    position: absolute;
+    top: 50%;
+    left: 36%;
 }
 
 a {
@@ -128,7 +131,7 @@ a {
 }
 
 #west {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/ISSlRnm.png) no-repeat center right;
+    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center right;
     background-size: cover;
   }
   #east{
@@ -136,7 +139,7 @@ a {
 }
 
 #east {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/man_guy_jumping_levitate_railing-1407739.jpg) no-repeat center bottom;
+    background: url(https://www.genomebc.ca/wp-content/uploads/2017/12/random-free-stock-photo.jpg) no-repeat center bottom;
     background-size: cover;
 }
 
