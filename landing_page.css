@@ -77,14 +77,18 @@
   }
   
   .logo{
+    font-stretch: ultra-expanded;
+    font-weight:800;
+    font-size: 800px;
+    letter-spacing: 1px;
     display: inline;
     position: absolute;
     top: 10%;
-    left: 48%;
+    left: 47.5%;
     text-align: center;
   }
   .logo img{
-      max-width: 100px;
+      max-width: 150px;
   }
   a{
     text-transform: uppercase;
