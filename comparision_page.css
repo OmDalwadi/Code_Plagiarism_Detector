@@ -8,15 +8,15 @@ html {
 }
 
 body {
-  background-color: rgb(151, 192, 197);
+  background-color: rgb(202, 155, 33);
 }
 
 tr{
-  background-color:rgb(151, 97, 107);
+  background-color:rgb(144, 174, 46);
 }
 
-h1{
-  color:bisque;
+h1{ 
+  color: rgb(151, 72, 42);
 }
 
 p {
