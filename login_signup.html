@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" href="login_signup.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css" />
-    <script type="text/javascript" src="ValidateLS.js"> </script>
+    <script type="text/javascript" src="ValidateL.js"> </script>
+    <script type="text/javascript" src="ValidateS.js"> </script>
 </head>
 
 <body class="body">
@@ -36,46 +37,50 @@
                                                 <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="pswd" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="PostListPage.html"> <input type="submit" value="Login" /></a>
+                                            <a href="landing_page.html"> <input type="submit" value="Login" /></a>
                                             <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
                                         </form>                                      
                                         </div>
 
-                                        <!-- <form id="Loginform" method="post">
-                                            <h3>
-                                                <label id="msg_email" class="err_msg" ></label><br>
-                                                <label for=>Email: </label>
-                                                <input type="text" id="email" name="email" placeholder="Enter your Email address"><br><br>
-                                                
-                                                <label id="msg_pswd" class="err_msg" ></label><br>
-                                                <label for=>Password:      </label>
-                                                <input type="password" id="pswd" name="pswd" placeholder="Enter your Password"><br><br>
-                            
-                                                
-                                                <br>
-                                                <a href="landing_page.html"> <input type="submit" value="Login" /></a>
-                                                or New User?<button id="id2"><a href="SignupForm.html">Sign Up<a href="SignupForm.html"></a></button>here.
-                                            </h3>
-                                            </form> -->
                                     </div>
                                 </div>
                                 <div class="card-back">
                                     <div class="center-wrap">
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Sign Up</h4>
+                                        <form id="Signupform" method="post">
                                             <div class="form-group">
-                                                <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                                                <input type="text" name="Name" class="form-style" placeholder="Your Full Name" id="uname" autocomplete="off">
                                                 <i class="input-icon uil uil-user"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+                                                <label id="msg_uname" class="err_msg" ></label><br>
+                                                <label id="msg_email" class="err_msg" ></label><br>
+                                                <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="emaile" autocomplete="off">
                                                 <i class="input-icon uil uil-at"></i>
                                             </div>
                                             <div class="form-group mt-2">
-                                                <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off">
+                                                <label id="msg_dob" class="err_msg" ></label><br>
+                                                <input type="date" name="dateofbirth" class="form-style" placeholder="Date Of Birth" id="dob" autocomplete="off">
+                                                <i class="input-icon bi bi-calendar3-week"></i>
+                                            </div> 
+                                            <div class="form-group mt-2">
+                                                <label id="msg_pp" class="err_msg" ></label><br>
+                                                <input type="file" name="pp" class="form-style" placeholder="ProfilePic" id="pp">
+                                                <i class="input-icon bi bi-calendar3-week"></i>
+                                            </div>                       
+                                            <div class="form-group mt-2">
+                                                <label id="msg_pswdp" class="err_msg" ></label><br>
+                                                <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="pswdp" autocomplete="off">
                                                 <i class="input-icon uil uil-lock-alt"></i>
                                             </div>
-                                            <a href="login_signup.html" class="button mt-4">submit</a>
+                                            <div class="form-group mt-2">
+                                                <label id="msg_cpswd" class="err_msg" ></label><br>
+                                                <input type="password" name="logpass" class="form-style" placeholder="Confirm Passwprd" id="cpswd" autocomplete="off">
+                                                <i class="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <a href="landing_page.html"> <input type="submit" value="Signup" /></a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -87,6 +92,7 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="validate-LS.js"></script>
+<script type="text/javascript" src="validate-L.js"></script>
+<script type="text/javascript" src="validate-S.js"></script>
 <div id="display_info"></div>
 </html>
