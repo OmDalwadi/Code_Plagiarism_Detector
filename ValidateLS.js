@@ -1,4 +1,6 @@
-function Loginpage(event)
+
+
+function LoginSignup(event)
 {
    
 
@@ -95,3 +97,8 @@ function Loginpage(event)
     }
     document.getElementById("display_info").innerHTML="";
   }
+
+
+
+  
+
