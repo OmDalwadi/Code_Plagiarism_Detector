@@ -23,15 +23,15 @@ function compareStrings() {
 
 compareStrings();
 
-// // Select a file using the HTML input element
-// const fileInput = document.querySelector("input[type=file]");
-// const file = fileInput.files[0];
+// Select a file using the HTML input element
+const fileInput = document.querySelector("input[type=file]");
+const file = fileInput.files[0];
 
-// // Extract and clean the text from the file
-// extractText(file).then(text => {
-//     // Use the extracted text in your program
-//     console.log(text);
-// });
+// Extract and clean the text from the file
+extractText(file).then(text => {
+    // Use the extracted text in your program
+    console.log(text);
+});
 
 extractText("../html/comparision_page.html").then(text => {
     console.log(text);

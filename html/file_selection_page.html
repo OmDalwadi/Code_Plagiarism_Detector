@@ -17,6 +17,7 @@
 <head>
     <link rel="stylesheet" href="../css/comparision_page.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/myfunction.js"></script>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
                 <label for="myfile">
                   Select a file to compare:
                 </label>
-                <input type="file" id="myfile" name="myfile" />
+                <input type="file" id="myfile" name="myfile" onchange="extractText()" />
             </td>
             <td></td>
         </tr>

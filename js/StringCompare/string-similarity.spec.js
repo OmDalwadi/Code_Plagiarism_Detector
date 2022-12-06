@@ -1,6 +1,6 @@
 /*global require describe it*/
 var { expect } = require("chai");
-var { stringSimilarity } = require("../dist/string-similarity");
+var { stringSimilarity } = require("../../strComp/dist/string-similarity");
 
 describe("stringSimilarity", () => {
 
