@@ -12,49 +12,75 @@
         width: 250px;
         height: 10em;
     }
+    
+    h1 {
+        text-align: center;
+    }
 </style>
+<script>
+    function processFile(file) {
+        // read the file and process the data
+        var reader = new FileReader();
+        reader.onload = function() {
+            var data = reader.result;
+            // update the webpage with the data
+            document.getElementById('uploadDisplay').innerHTML = data;
+        }
+        reader.readAsText(file);
+    }
+</script>
 
 <head>
     <link rel="stylesheet" href="../css/comparision_page.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../js/myfunction.js"></script>
 </head>
 
 <body>
 
-    <h1 align="center">File Selection Page</h1>
+    <h1> File Selection Page
+    </h1>
 
     <table style="width:100%">
         <tr>
-            <th style="width:50%" align="center">
-                <p>Personal Work</p>
+            <th style="width:50%" text-align="center">
+                <p> Personal Work
+                </p>
             </th>
-            <th style="width:50%" align="center">
-                <p>DB Data</p>
+            <th style="width:50%" text-align="center">
+                <p> DB Data
+                </p>
             </th>
         </tr>
         <tr>
-            <td id="DisplayContent">Content from uploaded file will be displayed here:<textarea style="height:350px; width:98%" readonly></textarea></td>
-            <td id="DBdata">Content from Database will be displayed here:<textarea style="height:350px; width:98%" readonly></textarea></td>
+            <td id="DisplayContent"> Content from uploaded file will be displayed here:
+                <textarea id="uploadDisplay" style="height:350px; width:98%" readonly></textarea>
+            </td>
+            <td id="DBdata"> Content from Database will be displayed here:
+                <textarea id="databaseDisplay" style="height:350px; width:98%" readonly></textarea>
+            </td>
         </tr>
         <tr>
             <td id="Selectfile">
-                <label for="myfile">
-                  Select a file to compare:
-                </label>
-                <input type="file" id="myfile" name="myfile" onchange="extractText()" />
+                Select a file to compare:
+                <input type="file" id="myfile" name="myfile" onchange="processFile(this.files[0])" />
             </td>
-            <td></td>
+            <td>
+            </td>
         </tr>
         <tr>
         </tr>
         <tr>
-            <th colspan="2" id="comparision"><input type="button" value="Start Comparing"></th>
+            <th colspan=" 2 " id="comparision ">
+                <input type="button " value="Start Comparing ">
+            </th>
         </tr>
 
     </table>
 
 
 </body>
+
+<script type="text/javascript" src="../js/extractText.js "></script>
+<script src="../js/dbConnect.js "></script>
 
 </html>
