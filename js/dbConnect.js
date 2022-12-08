@@ -1,23 +1,22 @@
-const mysql = require('../node_modules/mysql/index.js');
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'your-mysql-username',
-    password: 'your-mysql-password',
-    database: 'your-mysql-database'
+    user: 'root',
+    password: 'm@y9h5H2',
 });
 
 function insertData(data) {
     const sql = 'INSERT INTO users SET ?';
     connection.query(sql, data, (err, result) => {
-        if (err) throw err;
+        if (err) return err;
         console.log('Data inserted into the database.');
         console.log('Inserted data:', data);
     });
 }
 
 connection.connect((err) => {
-    if (err) throw err;
+    if (err) return err;
     console.log('Successfully connected to the MySQL server.');
 
     // Insert some data into the database.
@@ -28,6 +27,6 @@ connection.connect((err) => {
 
 // Close the connection to the MySQL server.
 connection.end((err) => {
-    if (err) throw err;
+    if (err) return err;
     console.log('Connection to the MySQL server was closed.');
 });

@@ -1,0 +1,33 @@
+{
+    "name": "code_plagiarism_detector",
+    "version": "1.0.0",
+    "description": "Creating a Software/Database wherewe can check the case of plagiarism in the code files submitted by the students.\r you can access the software and perform the tasks from the following link:\r http://www2.cs.uregina.ca/~odx880/PlagDetector/login_signup.html",
+    "main": "app.js",
+    "dependencies": {
+        "bignumber.js": "^9.0.0",
+        "core-util-is": "^1.0.3",
+        "inherits": "^2.0.4",
+        "isarray": "^1.0.0",
+        "mysql": "^2.18.1",
+        "process-nextick-args": "^2.0.1",
+        "readable-stream": "^2.3.7",
+        "safe-buffer": "^5.1.2",
+        "sqlstring": "^2.3.1",
+        "string_decoder": "^1.1.1",
+        "util-deprecate": "^1.0.2"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/OmDalwadi/Code_Plagiarism_Detector.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/OmDalwadi/Code_Plagiarism_Detector/issues"
+    },
+    "homepage": "https://github.com/OmDalwadi/Code_Plagiarism_Detector#readme"
+}
