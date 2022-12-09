@@ -1,3 +1,8 @@
+<!-- Copyright 2018 Stephen Brown Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission
+notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE. -->
 <!DOCTYPE html>
 <html>
 <style>
@@ -17,16 +22,66 @@
         text-align: center;
     }
 </style>
+
 <script>
+    var result = 0;
+    var stringSimilarity = function(str1, str2, substringLength, caseSensitive) {
+        if (substringLength === void 0) {
+            substringLength = 2;
+        }
+        if (caseSensitive === void 0) {
+            caseSensitive = false;
+        }
+        if (!caseSensitive) {
+            str1 = str1.toLowerCase();
+            str2 = str2.toLowerCase();
+        }
+        if (str1.length < substringLength || str2.length < substringLength)
+            return 0;
+        var map = new Map();
+        for (var i = 0; i < str1.length - (substringLength - 1); i++) {
+            var substr1 = str1.substring(i, i + substringLength);
+            map.set(substr1, map.has(substr1) ? map.get(substr1) + 1 : 1);
+        }
+        var match = 0;
+        for (var j = 0; j < str2.length - (substringLength - 1); j++) {
+            var substr2 = str2.substring(j, j + substringLength);
+            var count = map.has(substr2) ? map.get(substr2) : 0;
+            if (count > 0) {
+                map.set(substr2, count - 1);
+                match++;
+            }
+        }
+        return (match * 2) / (str1.length + str2.length - ((substringLength - 1) * 2));
+    };
+
     function processFile(file) {
         // read the file and process the data
         var reader = new FileReader();
-        reader.onload = function() {
-            var data = reader.result;
-            // update the webpage with the data
-            document.getElementById('uploadDisplay').innerHTML = data;
-        }
-        reader.readAsText(file);
+        return new Promise((resolve, reject) => {
+            reader.onload = function() {
+                var data = reader.result;
+                // update the webpage with the data
+                document.getElementById('uploadDisplay').innerHTML = data;
+                const text = reader.result.replace(/\s/g, "").replace(/"/g, "\\\"");
+
+                //When data is pulled from the database, we need to re-add the spaces and double quotes 
+                const dbtext = reader.result.replace("\\\"", /"/g);
+                resolve(text);
+                result = stringSimilarity(data, dbtext);
+            };
+            reader.onerror = reject;
+            reader.readAsText(file);
+        });
+    }
+
+    function compareStrings() {
+        // const result = stringSimilarity("text 1", "text 2");
+        var score = result * 100 + '%';
+        var student = "Student ID";
+        console.log(score);
+        var output = "The Similarity Score is " + score + " with " + student;
+        document.getElementById("SimilarityScore").innerHTML = output;
     }
 </script>
 
@@ -36,9 +91,7 @@
 </head>
 
 <body>
-
-    <h1> File Selection Page
-    </h1>
+    <h1> File Selection Page </h1>
 
     <table style="width:100%">
         <tr>
@@ -64,23 +117,17 @@
                 Select a file to compare:
                 <input type="file" id="myfile" name="myfile" onchange="processFile(this.files[0])" />
             </td>
-            <td>
+            <td id="SimilarityScore">
             </td>
         </tr>
         <tr>
         </tr>
         <tr>
-            <th colspan=" 2 " id="comparision ">
-                <input type="button " value="Start Comparing ">
+            <th colspan="2" id="comparision ">
+                <input type="button" value="Start Comparing" onclick="compareStrings()" />
             </th>
         </tr>
-
     </table>
-
-
 </body>
-
-<script type="text/javascript" src="../js/extractText.js "></script>
-<script src="../js/dbConnect.js "></script>
 
 </html>

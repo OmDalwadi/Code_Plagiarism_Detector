@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
 });
 
 function insertData(data) {
-    const sql = 'INSERT INTO users SET ?';
+    const sql = 'INSERT INTO Submission(STUCO, QID, ANS) VALUES (1, 1, ? );';
     connection.query(sql, data, (err, result) => {
         if (err) return err;
         console.log('Data inserted into the database.');
