@@ -15,9 +15,9 @@ function Login(event) {
 
 
 
-    var regex_email = /^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
+    var regex_email = /^[\w\d]+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
 
-    var regex_pswd = /[^\s]{6,}/;
+    var regex_pswd = /^\S*$/;
 
 
 
@@ -108,9 +108,9 @@ function Signup(event) {
 
 
     var regex_uname = /^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$/;
-    var regex_email = /^\w+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
+    var regex_email = /^[\w\d]+@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/;
     // var regex_dob = /^\d{2}([.\/-])\d{2}\1\d{4}$/;
-    var regex_pswd = /[^\w\s]/;
+    var regex_pswd = /^\S*$/;
 
 
     var msg_uname = document.getElementById("msg_uname");
@@ -191,11 +191,12 @@ function Signup(event) {
 
     }
     if (regex_pswd.test(pswdp) == false) {
-        textNode = document.createTextNode("Password is invaldi. Be sure to follow the rules(NO SPACE).");
+        textNode = document.createTextNode("Password is invalid. Be sure to follow the rules(NO SPACE).");
         msg_pswd.appendChild(textNode);
         valid = false;
+
     } else if (pswdp.length < 8) {
-        textNode = document.createTextNode("Password should be of 6 character or longer.");
+        textNode = document.createTextNode("Password should be of 8 character or longer.");
         msg_pswd.appendChild(textNode);
         valid = false;
     }
@@ -208,9 +209,10 @@ function Signup(event) {
         valid = false;
 
     } else if (regex_pswd.test(cpswd) == false) {
-        textNode = document.createTextNode("Confirm Password is invaldi. Be sure to follow the rules..");
+        textNode = document.createTextNode("Confirm Password is invalid. Be sure to follow the rules..");
         msg_pswdr.appendChild(textNode);
         valid = false;
+
     } else if (cpswd != pswdp) {
         textNode = document.createTextNode("Confirm Password doesnot match with the password.");
         msg_pswdr.appendChild(textNode);
