@@ -15,6 +15,16 @@ function insertData(data) {
     });
 }
 
+function sendQueryToDatabase(query) {
+
+    // Send the query to the database and store the result
+    var result = connection.query(query);
+
+    // Return the result from the function
+    return result;
+}
+
+
 connection.connect((err) => {
     if (err) return err;
     console.log('Successfully connected to the MySQL server.');
