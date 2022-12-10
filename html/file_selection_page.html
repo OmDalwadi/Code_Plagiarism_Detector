@@ -22,9 +22,10 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
         text-align: center;
     }
 </style>
-
+<script type="text/javascript" src="../js/dbConnect.js"></script>
 <script>
     var similarityScore = 0;
+    var text = '';
     // var stringSimilarity = function(str1, str2, substringLength, caseSensitive) {
     //     if (substringLength === void 0) {
     //         substringLength = 2;
@@ -103,7 +104,7 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
                 var data = reader.result;
                 // update the webpage with the data
                 document.getElementById('uploadDisplay').innerHTML = data;
-                const text = reader.result.replace(/\s/g, "").replace(/"/g, "\\\"");
+                text = reader.result.replace(/\s/g, "").replace(/"/g, "\\\"");
 
                 //When data is pulled from the database, we need to re-add the spaces and double quotes 
                 // const dbtext = reader.result.replace("\\\"", /"/g);
@@ -125,6 +126,24 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
         console.log(score);
         var output = "The Similarity Score is " + score + " with Student ID = " + student;
         document.getElementById("SimilarityScore").innerHTML = output;
+        // create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // specify the HTTP method, URL, and asynchronous flag
+        xhr.open('GET', 'http://127.0.0.1:3000/upload?ans=' + encodeURIComponent(text), true);
+
+
+        // add an event listener for when the request finishes
+        xhr.addEventListener('load', function() {
+            // get the response body
+            var response = xhr.response;
+
+            // do something with the response
+            console.log(response);
+        });
+
+        // send the request
+        xhr.send(null);
     }
 </script>
 
