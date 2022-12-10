@@ -109,7 +109,7 @@
         console.log(similarityScore);
 
         // result = stringSimilarity(sample1, sample2, void 0, true);
-        var score = similarityScore * 100 + '%';
+        var score = similarityScore.toFixed(2) * 100 + '%';
         var output = "The Similarity Score is " + score;
         document.getElementById("results").innerHTML = output;
     }
