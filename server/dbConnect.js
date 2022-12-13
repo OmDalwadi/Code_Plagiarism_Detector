@@ -4,7 +4,10 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'm@y9h5H2',
+    database: 'codeplagiarismdetector'
 });
+
+
 
 function insertData(data) {
     const sql = 'INSERT INTO Submission(STUCO, QID, ANS) VALUES (1, 1, ? );';
@@ -15,12 +18,12 @@ function insertData(data) {
     });
 }
 
-function sendQueryToDatabase(query) {
+const sendQueryToDatabase = (query) => {
 
     // Send the query to the database and store the result
     var result = connection.query(query);
-
     // Return the result from the function
+    console.log("result", result)
     return result;
 }
 
@@ -35,8 +38,10 @@ connection.connect((err) => {
 });
 
 
-// Close the connection to the MySQL server.
-connection.end((err) => {
-    if (err) return err;
-    console.log('Connection to the MySQL server was closed.');
-});
+// // Close the connection to the MySQL server.
+// connection.end((err) => {
+//     if (err) return err;
+//     console.log('Connection to the MySQL server was closed.');
+// });
+
+module.exports = { connection }
