@@ -88,6 +88,14 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
 
     <table style="width:100%">
         <tr>
+            <th colspan="2" id="comparision ">
+                Professor ID:<input type="text" id="PID" name="PID" size="10" style="border-radius: 5px;">
+                Student Number:<input type="text" id="StuNum" name="fname" size="10" style="border-radius: 5px;">
+                Assignment Number:<input type="text" id="AssiNum" name="Anum" size="2" style="border-radius: 5px;">
+                Question Number:<input type="text" id="QuestionNum" name="Qnum" size="2" style="border-radius: 5px;">
+            </th>
+        </tr>
+        <tr>
             <th style="width:50%" text-align="center">
                 <p> Personal Work
                 </p>
@@ -106,10 +114,10 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
             </td>
         </tr>
         <tr>
-            <td id="Selectfile">
-                Select a file to compare:
-                <input type="file" id="myfile" name="myfile" onchange="processFile(this.files[0])" />
+            <td id="Selectfile"> Select a file to compare:
+                <input type="file" id="myfile" name="myfile" onchange="processFile(this.files[0])" /><br>
             </td>
+           
             <td id="SimilarityScore">
             </td>
         </tr>
@@ -117,7 +125,7 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
         </tr>
         <tr>
             <th colspan="2" id="comparision ">
-                <input type="button" value="Start Comparing" onclick="compareStrings()" />
+                <input type="button" value="Start Comparing" style="border-radius: 5px;" onclick="compareStrings()" />
             </th>
         </tr>
     </table>

@@ -114,7 +114,7 @@ function Signup(event) {
 
 
     var msg_uname = document.getElementById("msg_uname");
-    var msg_email = document.getElementById("msg_email");
+    var msg_email = document.getElementById("msg_emaile");
     // var msg_dob = document.getElementById("msg_dob");
     // var msg_pp = document.getElementById("msg_pp");
     var msg_pswd = document.getElementById("msg_pswdp");
