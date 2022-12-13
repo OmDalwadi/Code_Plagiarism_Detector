@@ -8,33 +8,13 @@ const connection = mysql.createConnection({
 });
 
 
-
-function insertData(data) {
-    const sql = 'INSERT INTO Submission(STUCO, QID, ANS) VALUES (1, 1, ? );';
-    connection.query(sql, data, (err, result) => {
-        if (err) return err;
-        console.log('Data inserted into the database.');
-        console.log('Inserted data:', data);
-    });
-}
-
-const sendQueryToDatabase = (query) => {
-
-    // Send the query to the database and store the result
-    var result = connection.query(query);
-    // Return the result from the function
-    console.log("result", result)
-    return result;
-}
-
-
 connection.connect((err) => {
     if (err) return err;
     console.log('Successfully connected to the MySQL server.');
 
     // Insert some data into the database.
-    const data = { name: 'John Doe', email: 'john.doe@example.com' };
-    insertData(data);
+    // const data = { name: 'John Doe', email: 'john.doe@example.com' };
+    // insertData(data);
 });
 
 

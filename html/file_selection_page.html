@@ -26,75 +26,6 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
 <script>
     var similarityScore = 0;
     var text = '';
-    // var stringSimilarity = function(str1, str2, substringLength, caseSensitive) {
-    //     if (substringLength === void 0) {
-    //         substringLength = 2;
-    //     }
-    //     if (caseSensitive === void 0) {
-    //         caseSensitive = false;
-    //     }
-    //     if (!caseSensitive) {
-    //         str1 = str1.toLowerCase();
-    //         str2 = str2.toLowerCase();
-    //     }
-    //     if (str1.length < substringLength || str2.length < substringLength)
-    //         return 0;
-    //     var map = new Map();
-    //     for (var i = 0; i < str1.length - (substringLength - 1); i++) {
-    //         var substr1 = str1.substring(i, i + substringLength);
-    //         map.set(substr1, map.has(substr1) ? map.get(substr1) + 1 : 1);
-    //     }
-    //     var match = 0;
-    //     for (var j = 0; j < str2.length - (substringLength - 1); j++) {
-    //         var substr2 = str2.substring(j, j + substringLength);
-    //         var count = map.has(substr2) ? map.get(substr2) : 0;
-    //         if (count > 0) {
-    //             map.set(substr2, count - 1);
-    //             match++;
-    //         }
-    //     }
-    //     return (match * 2) / (str1.length + str2.length - ((substringLength - 1) * 2));
-    // };
-
-    function levenshteinDistance(a, b) {
-        // Create a matrix to store the edit distances between substrings of a and b
-        const matrix = [];
-
-        // Initialize the first row and column of the matrix to represent the
-        // distances between the empty string and substrings of a and b
-        for (let i = 0; i <= b.length; i++) {
-            matrix[i] = [i];
-        }
-        for (let j = 0; j <= a.length; j++) {
-            matrix[0][j] = j;
-        }
-
-        // Iterate over the remaining cells of the matrix and fill them in with the
-        // minimum edit distances between substrings of a and b
-        for (let i = 1; i <= b.length; i++) {
-            for (let j = 1; j <= a.length; j++) {
-                if (b.charAt(i - 1) === a.charAt(j - 1)) {
-                    // If the characters at the current positions in a and b are the same,
-                    // the edit distance is the same as the distance between the substrings
-                    // without these characters
-                    matrix[i][j] = matrix[i - 1][j - 1];
-                } else {
-                    // If the characters at the current positions in a and b are different,
-                    // the edit distance is 1 plus the minimum of the distances between the
-                    // substrings without these characters, plus a deletion, insertion, or
-                    // substitution
-                    matrix[i][j] = 1 + Math.min(
-                        matrix[i - 1][j - 1],
-                        matrix[i][j - 1],
-                        matrix[i - 1][j]
-                    );
-                }
-            }
-        }
-
-        // The edit distance is the bottom-right value in the matrix
-        return matrix[b.length][a.length];
-    }
 
     function processFile(file) {
         // read the file and process the data
@@ -105,14 +36,6 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
                 // update the webpage with the data
                 document.getElementById('uploadDisplay').innerHTML = data;
                 text = reader.result.replace(/\s/g, "").replace(/"/g, "\\\"").replace(/'/g, "\\\"");
-
-                //When data is pulled from the database, we need to re-add the spaces and double quotes 
-                // const dbtext = reader.result.replace("\\\"", /"/g);
-                const dbtext = text.replace("\\\"", /"/g);
-                resolve(text);
-                const editDistance = levenshteinDistance(text, dbtext);
-                similarityScore = 1 - (editDistance / Math.max(text.length, dbtext.length));
-                console.log(similarityScore);
             };
             reader.onerror = reject;
             reader.readAsText(file);
@@ -121,17 +44,15 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
 
     function compareStrings() {
         // const result = stringSimilarity("text 1", "text 2");
-        var score = similarityScore.toFixed(2) * 100 + '%';
+        // var score = similarityScore.toFixed(2) * 100 + '%';
         var student = "20000000";
-        console.log(score);
-        var output = "The Similarity Score is " + score + " with Student ID = " + student;
-        document.getElementById("SimilarityScore").innerHTML = output;
+        // console.log(score);
+
         // create a new XMLHttpRequest object
         var xhr = new XMLHttpRequest();
 
         // specify the HTTP method, URL, and asynchronous flag
-        xhr.open('GET', 'http://127.0.0.1:3000/upload?ans=' + encodeURIComponent(text), true);
-
+        xhr.open('GET', 'http://127.0.0.1:3000/compare?ans=' + encodeURIComponent(text), true);
 
         // add an event listener for when the request finishes
         xhr.addEventListener('load', function() {
@@ -140,10 +61,20 @@ OR OTHER DEALINGS IN THE SOFTWARE. -->
 
             // do something with the response
             console.log(response);
+            let data = JSON.parse(response);
+            console.log(data);
+            document.getElementById("databaseDisplay").innerHTML = data.similarAnswer;
+            var output = "The Similarity Score is " + data.maxScore + " with Student ID = " + student;
+            document.getElementById("SimilarityScore").innerHTML = output;
         });
 
         // send the request
         xhr.send(null);
+    }
+
+
+    function uploadData() {
+
     }
 </script>
 
